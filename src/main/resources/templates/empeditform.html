@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Edit form.</title>
+</head>
+<body>
+<h3> Employee Edit.</h3>
+	<form th:action="@{/editsave}" th:object="${employee}" method="post">
+
+	<table>
+		<tr th:each="employee : ${employees}">
+			<td>
+				<input type="hidden" id="id" name="id" th:value="${employee.id}"/>
+	
+				<label for="firstname">First Name</label> 
+				<input type="text" id="firstName" name="firstName" th:value="${employee.firstName}"/><br>
+			
+			
+				<label for="lastname">Last Name</label> 
+				<input type="text"  id="lastName" name="lastName" th:value="${employee.lastName}"/><br>
+			
+			
+				<label for="email">Email</label> 
+				<input type="text" id="email" name="email" th:value="${employee.email}" /><br>
+			
+				<input type="submit" value="Edit Save"><br>
+			</td>
+		</tr>
+		</table>
+	</form>
+</body>
+</html>
